@@ -2,7 +2,7 @@ pipeline {
     environment {
         NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
     }
-     agent {
+    agent {
         docker {
             image 'node:16-buster-slim'
             args '-p 3000:3000'
@@ -12,6 +12,7 @@ pipeline {
         stage('Audit') {
             steps {
                 echo 'npm audit...'
+                sh 'npm audit'
             }
         }
         stage('build') {
@@ -21,12 +22,13 @@ pipeline {
         }
         stage('Format with Linter') {
             steps {
-                echo 'formatting step'
+                echo 'formatting step ...'
             }
         }
         stage('test') {
             steps {
-                echo 'unit tests with jest'
+                echo 'unit tests ...'
+                sh 'npm run test a'
             }
         }
     }
