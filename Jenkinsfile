@@ -6,9 +6,9 @@ pipeline {
                 echo 'npm audit...'
             }
         }
-        stage('dependances installation') {
+        stage('build') {
             steps {
-                echo 'npm ci'
+                sh 'npm ci'
             }
         }
         stage('Format with Linter') {
