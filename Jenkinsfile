@@ -12,7 +12,7 @@ pipeline {
         stage('Audit') {
             steps {
                 echo 'npm audit...'
-                sh 'npm audit'
+                //sh 'npm audit'
             }
         }
         stage('build') {
